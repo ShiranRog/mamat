@@ -2,7 +2,7 @@
 
 # the adress was given as a part of the exercise:
 main_adress="https://www.ynetnews.com/category/3082"
-data=$(wget --no-check-certificate -O - $main_adress 2>/dev/null)
+data=$(wget --no-check-certificate -qO - $main_adress 2>/dev/null)
 # both the specific article adresses and the number of the articles are needed:
 article_urls=$(echo "$data" | grep -oP "https://(www.)?ynetnews.com/article/[a-zA-Z0-9]*" | sort | uniq)
 num_of_lines=$(echo "$article_urls" | wc -l)
