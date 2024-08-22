@@ -15,9 +15,8 @@ for (( i=1; i<=$num_of_lines; ++i )); do
     Gantz_count=$(echo "$article_data" | grep -o "Gantz" | wc -l)
     # seperating between cases without and with mentions:
     if [[ ($Netanyahu_count -eq 0) && ($Gantz_count -eq 0) ]]; then
-        echo -ne "-"     
+        echo -ne "-\n"     
     else
-        echo -ne "Netanyahu, $Netanyahu_count, Gantz, $Gantz_count"
+        echo -ne "Netanyahu, $Netanyahu_count, Gantz, $Gantz_count\n"
     fi  
-    echo ""
 done
