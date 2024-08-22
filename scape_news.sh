@@ -9,7 +9,7 @@ num_of_lines=$(echo "$article_urls" | wc -l)
 
 for (( i=1; i<=$num_of_lines; ++i )); do
     sub_adress="$(echo "$article_urls" | head -n $i | tail -n 1)"
-    article_data=$(wget --no-check-certificate -O - $sub_adress 2>/dev/null)
+    article_data=$(wget --no-check-certificate -qO - $sub_adress 2>/dev/null)
     echo -ne "$sub_adress, "
     Netanyahu_count=$(echo "$article_data" | grep -o "Netanyahu" | wc -l)
     Gantz_count=$(echo "$article_data" | grep -o "Gantz" | wc -l)
