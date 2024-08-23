@@ -23,7 +23,8 @@ fi
 mkdir "$folder_name"
 
 # section 3
-cat "${course_number}" | ./hist.exe - -nbins 10 > "$folder_name"/histogram.txt
+temp=$(cat "${course_number}" | ./hist.exe - -nbins 10) 
+echo "$temp" > "$folder_name/histogram.txt"
 
 # section 4
 
