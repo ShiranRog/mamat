@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
 
     if (file_name_index == -1 || !strcmp("-", argv[1]) )
     {
-        f = stdin;
+        f = fopen(stdin, "r");
     }
     else
     {
@@ -58,7 +58,7 @@ int main(int argc, char *argv[]) {
     int bin_low = 0;
     int bin_high = space_between_bins-1;
     for (int i = 0; i < nbins; i++) {
-        fprintf(stdout, "Bin %d-%d\t%d\n", bin_low,bin_high , hist[i]);
+        fprintf(stdout, "Bin %d-%d \t%d\n", bin_low,bin_high , hist[i]);
         bin_low+=space_between_bins;
         bin_high+=space_between_bins;
     }
