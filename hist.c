@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
     	bin_low=bin_high+1;
     	bin_high=((i+1)*100)/nbins - 1;
     	if (i==nbins-1) bin_high=100;
-        fprintf(stdout, "%d-%d \t%d\n", bin_low,bin_high , hist[i]);
+        fprintf(stdout, "%d-%d\t%d\n", bin_low,bin_high , hist[i]);
     }
     free(hist);
 
