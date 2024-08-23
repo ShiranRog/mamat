@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # section 1:
-number_of_arguments = $#
+number_of_arguments=$#
 
 if [[ "$number_of_arguments" -ne 1 ]]; then
     echo "Wrong number of arguments" >&2
@@ -30,8 +30,8 @@ cat "${course_number}" | ./hist.exe - -nbins 10 > "$folder_name"/histogram.txt
 mean=$(cat "${course_number}" | ./mean.exe)
 median=$(cat "${course_number}" | ./median.exe)
 min=$(cat "${course_number}" | ./min.exe)
-max=$(cat "${course_number}" | "$course_number")
+max=$(cat "${course_number}" | "./max.exe")
 
 output="$mean\t$median\t$min\t$max"
 echo -e $output > "${folder_name}/statistics.txt"
-cd "$d_name"
+cd "$folder_name"
