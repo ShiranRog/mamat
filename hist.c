@@ -53,14 +53,13 @@ int main(int argc, char *argv[]) {
     }
 
 	int *hist = operate(f, nbins);
-    int space_between_bins = 100/nbins;
     int bin_low = 0;
-    int bin_high = space_between_bins-1;
+    int bin_high = -1;
     for (int i = 0; i < nbins; i++) {
-    	if (i==nbins-1) bin_high=bin_high+1;
+    	bin_low=bin_high+1;
+    	bin_high=((i+1)*100)/nbins;
+    	if (i==nbins-1) bin_high=100;
         fprintf(stdout, "%d-%d \t%d\n", bin_low,bin_high , hist[i]);
-        bin_low+=space_between_bins;
-        bin_high+=space_between_bins;
     }
     free(hist);
 
