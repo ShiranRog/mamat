@@ -39,14 +39,14 @@ int main(int argc, char *argv[]) {
 
     FILE *f;
 
-    if (file_name_index == -1 || !strcmp("-", argv[1]) )
-    {
-        f = fopen(stdin, "r");
-    }
-    else
+    if (argc == 1 || !strcmp("-", argv[1]) ) {
+        f = stdin;
+    } 
+    else 
     {
         f = fopen(argv[file_name_index], "r");
     }
+
     if (!f) {
         fprintf(stderr, "File not found: \"%s\"\n", argv[1]);
         return 1;
