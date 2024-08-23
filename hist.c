@@ -57,7 +57,7 @@ int main(int argc, char *argv[]) {
     int bin_high = -1;
     for (int i = 0; i < nbins; i++) {
     	bin_low=bin_high+1;
-    	bin_high=((i+1)*100)/nbins;
+    	bin_high=((i+1)*100)/nbins - 1;
     	if (i==nbins-1) bin_high=100;
         fprintf(stdout, "%d-%d \t%d\n", bin_low,bin_high , hist[i]);
     }
