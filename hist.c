@@ -39,10 +39,10 @@ int main(int argc, char *argv[]) {
 
     FILE *f;
 
-    if (file_name_index == -1 || !strcmp("-", argv[1]) ) {
+    if (argc == 1 || !strcmp("-", argv[1]) ) {
         f = stdin;
-    } 
-    else 
+    }
+    else
     {
         f = fopen(argv[file_name_index], "r");
     }
@@ -53,12 +53,12 @@ int main(int argc, char *argv[]) {
     }
 
 	int *hist = operate(f, nbins);
-    fprintf(stdout, "Histogram values:\n");
     int space_between_bins = 100/nbins;
     int bin_low = 0;
     int bin_high = space_between_bins-1;
     for (int i = 0; i < nbins; i++) {
-        fprintf(stdout, "Bin %d-%d \t%d\n", bin_low,bin_high , hist[i]);
+    	if (i==nbins-1) bin_high=bin_high+1;
+        fprintf(stdout, "%d-%d \t%d\n", bin_low,bin_high , hist[i]);
         bin_low+=space_between_bins;
         bin_high+=space_between_bins;
     }
@@ -114,7 +114,8 @@ void organizing_in_histogram_bins(int nbins, int *array, int grade) {
 
     int binindex;
     binindex= (grade * nbins)/100;
-
+    if (binindex == nbins){
+    	binindex = binindex-1;}
 	array[binindex] ++;
 
 }
