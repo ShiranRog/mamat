@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
 
     FILE *f;
 
-    if (argc == 1 || !strcmp("-", argv[1]) ) {
+    if (file_name_index == -1 || !strcmp("-", argv[1]) ) {
         f = stdin;
     } 
     else 
